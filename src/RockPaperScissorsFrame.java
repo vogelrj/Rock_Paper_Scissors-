@@ -74,9 +74,9 @@ public class RockPaperScissorsFrame extends JFrame {
         // Button panel
         JPanel buttonPanel = new JPanel(new GridLayout(1, 4, 10, 10));
         buttonPanel.setBorder(BorderFactory.createTitledBorder("Choose your move"));
-        JButton rockButton = new JButton("Rock");
-        JButton paperButton = new JButton("Paper");
-        JButton scissorsButton = new JButton("Scissors");
+        JButton rockButton = new JButton("Rock", new ImageIcon("rock_imageicon.png"));
+        JButton paperButton = new JButton("Paper", new ImageIcon("paper_imageicon.png"));
+        JButton scissorsButton = new JButton("Scissors", new ImageIcon("scissors_imageicon.png"));
         JButton quitButton = new JButton("Quit");
 
         rockButton.addActionListener(e -> playRound("Rock"));
