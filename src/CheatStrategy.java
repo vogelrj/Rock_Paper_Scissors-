@@ -4,17 +4,10 @@ public class CheatStrategy implements Strategy {
     @Override
     public String determineMove(List<String> playerHistory) {
         if (playerHistory.isEmpty()) {
-            return "Rock";
+            return "Paper";
         }
-        return getCheatingMove(playerHistory.get(playerHistory.size() - 1));
-    }
-
-    private String getCheatingMove(String playerMove) {
-        return switch (playerMove) {
-            case "Rock" -> "Paper";
-            case "Paper" -> "Scissors";
-            case "Scissors" -> "Rock";
-            default -> "Rock";
-        };
+        String playerMove = playerHistory.get(playerHistory.size() - 1);
+        return playerMove.equals("Rock") ? "Paper" :
+                playerMove.equals("Paper") ? "Scissors" : "Rock";
     }
 }
