@@ -113,17 +113,20 @@ public class RockPaperScissorsFrame extends JFrame {
         playerHistory.add(playerMove);
         String result;
 
-        if ((strategy instanceof CheatStrategy) ||
-                (!playerMove.equals(computerMove) && !((playerMove.equals("Rock") && computerMove.equals("Scissors")) ||
-                        (playerMove.equals("Paper") && computerMove.equals("Rock")) ||
-                        (playerMove.equals("Scissors") && computerMove.equals("Paper"))))) {
-            result = computerMove + " beats " + playerMove + " (Computer wins " + strategy.getClass().getSimpleName() + ")";
-            computerWins++;
-            computerWinsField.setText(String.valueOf(computerWins));
-        } else {
+        if (playerMove.equals(computerMove)) {
+            result = "It's a tie! (Strategy: " + strategy.getClass().getSimpleName() + ")";
+            ties++;
+            tiesField.setText(String.valueOf(ties));
+        } else if ((playerMove.equals("Rock") && computerMove.equals("Scissors")) ||
+                (playerMove.equals("Paper") && computerMove.equals("Rock")) ||
+                (playerMove.equals("Scissors") && computerMove.equals("Paper"))) {
             result = playerMove + " beats " + computerMove + " (Player wins " + strategy.getClass().getSimpleName() + ")";
             playerWins++;
             playerWinsField.setText(String.valueOf(playerWins));
+        } else {
+            result = computerMove + " beats " + playerMove + " (Computer wins " + strategy.getClass().getSimpleName() + ")";
+            computerWins++;
+            computerWinsField.setText(String.valueOf(computerWins));
         }
 
         gameLog.append(result + "\n");

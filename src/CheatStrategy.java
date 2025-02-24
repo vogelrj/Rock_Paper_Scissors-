@@ -10,11 +10,11 @@ public class CheatStrategy implements Strategy {
     }
 
     private String getCheatingMove(String playerMove) {
-        switch (playerMove) {
-            case "Rock": return "Paper";
-            case "Paper": return "Scissors";
-            case "Scissors": return "Rock";
-            default: return "Rock";
-        }
+        return switch (playerMove) {
+            case "Rock" -> "Paper";
+            case "Paper" -> "Scissors";
+            case "Scissors" -> "Rock";
+            default -> "Rock";
+        };
     }
 }
